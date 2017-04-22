@@ -13,6 +13,7 @@
 		BB9481591EAB8EBC00910D69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9481571EAB8EBC00910D69 /* Main.storyboard */; };
 		BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */; };
 		BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE809901EABA1820069EDDE /* SocketManager.swift */; };
+		BBE809951EABC19E0069EDDE /* NSView+Screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */; };
 		C33D46AA45299E3B19C4AD94 /* Pods_OSX_client_cam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,9 @@
 		BB94815A1EAB8EBC00910D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechText.swift; sourceTree = "<group>"; };
 		BBE809901EABA1820069EDDE /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		BBE809921EABC19E0069EDDE /* OSX-client-cam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSX-client-cam-Bridging-Header.h"; sourceTree = "<group>"; };
+		BBE809931EABC19E0069EDDE /* NSView+Screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Screenshots.h"; sourceTree = "<group>"; };
+		BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Screenshots.m"; sourceTree = "<group>"; };
 		C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.release.xcconfig"; sourceTree = "<group>"; };
 		D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +91,9 @@
 				BB9481551EAB8EBC00910D69 /* Assets.xcassets */,
 				BB9481571EAB8EBC00910D69 /* Main.storyboard */,
 				BB94815A1EAB8EBC00910D69 /* Info.plist */,
+				BBE809931EABC19E0069EDDE /* NSView+Screenshots.h */,
+				BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */,
+				BBE809921EABC19E0069EDDE /* OSX-client-cam-Bridging-Header.h */,
 			);
 			path = "OSX-client-cam";
 			sourceTree = "<group>";
@@ -127,6 +134,7 @@
 					BB94814D1EAB8EBC00910D69 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = 44Q2J6374R;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -214,6 +222,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBE809951EABC19E0069EDDE /* NSView+Screenshots.m in Sources */,
 				BB9481541EAB8EBC00910D69 /* ViewController.swift in Sources */,
 				BB9481521EAB8EBC00910D69 /* AppDelegate.swift in Sources */,
 				BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */,
@@ -332,12 +341,15 @@
 			baseConfigurationReference = D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = "OSX-client-cam/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.remirobert.OSX-client-cam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSX-client-cam/OSX-client-cam-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -347,12 +359,14 @@
 			baseConfigurationReference = C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 44Q2J6374R;
 				INFOPLIST_FILE = "OSX-client-cam/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.remirobert.OSX-client-cam";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OSX-client-cam/OSX-client-cam-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

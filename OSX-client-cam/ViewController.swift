@@ -7,11 +7,29 @@
 //
 
 import Cocoa
+import Foundation
 import AVFoundation
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     private let session: AVCaptureSession = AVCaptureSession()
+    private var previewLayer: AVCaptureVideoPreviewLayer?
+    private let imageOutput = AVCaptureVideoDataOutput()
+    @IBOutlet weak var previewView: NSView!
+    @IBOutlet weak var imageView: NSImageView!
+
+    func captureOutput(_ captureOutput: AVCaptureOutput!,
+                       didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
+                       from connection: AVCaptureConnection!) {
+        guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
+        let ciimage = CIImage(cvPixelBuffer: pixelBuffer)
+        let rep = NSCIImageRep(ciImage: ciimage)
+        let image = NSImage(size: self.previewLayer!.frame.size)
+        image.addRepresentation(rep)
+        DispatchQueue.main.async {
+            self.imageView.image = image
+        }
+    }
 
     override func viewDidAppear() {
         super.viewDidAppear()
@@ -25,21 +43,17 @@ class ViewController: NSViewController {
                 session.addInput(backCameraInput)
             }
         }
+        imageOutput.setSampleBufferDelegate(self, queue: DispatchQueue.main)
+        if session.canAddOutput(imageOutput) {
+            session.addOutput(imageOutput)
+        }
 
-        let previewLayer:AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: session)
+        previewLayer = AVCaptureVideoPreviewLayer(session: session)
+        guard let previewLayer = previewLayer else {return}
         let myView:NSView = self.view
         previewLayer.frame = myView.bounds
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.view.layer?.addSublayer(previewLayer)
+        self.previewView.layer?.addSublayer(previewLayer)
         session.startRunning()
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        }
     }
 }
