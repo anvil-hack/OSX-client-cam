@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB8DFC121EABD6D6004AC50B /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8DFC111EABD6D6004AC50B /* APIService.swift */; };
 		BB9481521EAB8EBC00910D69 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9481511EAB8EBC00910D69 /* AppDelegate.swift */; };
 		BB9481541EAB8EBC00910D69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9481531EAB8EBC00910D69 /* ViewController.swift */; };
 		BB9481561EAB8EBC00910D69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9481551EAB8EBC00910D69 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSX_client_cam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB8DFC111EABD6D6004AC50B /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BB94814E1EAB8EBC00910D69 /* OSX-client-cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSX-client-cam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9481511EAB8EBC00910D69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB9481531EAB8EBC00910D69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 				BBE809931EABC19E0069EDDE /* NSView+Screenshots.h */,
 				BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */,
 				BBE809921EABC19E0069EDDE /* OSX-client-cam-Bridging-Header.h */,
+				BB8DFC111EABD6D6004AC50B /* APIService.swift */,
 			);
 			path = "OSX-client-cam";
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				BB9481521EAB8EBC00910D69 /* AppDelegate.swift in Sources */,
 				BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */,
 				BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */,
+				BB8DFC121EABD6D6004AC50B /* APIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

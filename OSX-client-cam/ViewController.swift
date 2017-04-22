@@ -18,16 +18,28 @@ class ViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var previewView: NSView!
     @IBOutlet weak var imageView: NSImageView!
 
+    private var capture: Bool = false
+
     func captureOutput(_ captureOutput: AVCaptureOutput!,
                        didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
+        if !capture {
+            return
+        }
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
         let ciimage = CIImage(cvPixelBuffer: pixelBuffer)
         let rep = NSCIImageRep(ciImage: ciimage)
         let image = NSImage(size: self.previewLayer!.frame.size)
         image.addRepresentation(rep)
+
+        guard let data = image.tiffRepresentation else {return}
+
         DispatchQueue.main.async {
-            self.imageView.image = image
+            self.imageView.image = NSImage(data: data)
+        }
+
+        APIService.shared.upload(data: data) { [weak self] _ in
+            self?.capture = false
         }
     }
 
@@ -55,5 +67,16 @@ class ViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDele
         previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.previewView.layer?.addSublayer(previewLayer)
         session.startRunning()
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: "capture"),
+                                               object: nil,
+                                               queue: nil) { [weak self] _ in
+            print("get capture event socket")
+            self?.capture = true
+        }
     }
 }

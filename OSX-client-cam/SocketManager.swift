@@ -27,6 +27,9 @@ class SocketManager {
             print("message : \(message)")
             SpeechText.shared.start(text: message)
         }
+        socket.on("captureFrame") { _, _ in
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "capture"), object: nil)
+        }
         socket.connect()
     }
 
