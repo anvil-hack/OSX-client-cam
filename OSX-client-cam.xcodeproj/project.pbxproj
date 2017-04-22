@@ -11,15 +11,23 @@
 		BB9481541EAB8EBC00910D69 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9481531EAB8EBC00910D69 /* ViewController.swift */; };
 		BB9481561EAB8EBC00910D69 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB9481551EAB8EBC00910D69 /* Assets.xcassets */; };
 		BB9481591EAB8EBC00910D69 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9481571EAB8EBC00910D69 /* Main.storyboard */; };
+		BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */; };
+		BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE809901EABA1820069EDDE /* SocketManager.swift */; };
+		C33D46AA45299E3B19C4AD94 /* Pods_OSX_client_cam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OSX_client_cam.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB94814E1EAB8EBC00910D69 /* OSX-client-cam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSX-client-cam.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB9481511EAB8EBC00910D69 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB9481531EAB8EBC00910D69 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB9481551EAB8EBC00910D69 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB9481581EAB8EBC00910D69 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB94815A1EAB8EBC00910D69 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechText.swift; sourceTree = "<group>"; };
+		BBE809901EABA1820069EDDE /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.release.xcconfig"; sourceTree = "<group>"; };
+		D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C33D46AA45299E3B19C4AD94 /* Pods_OSX_client_cam.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		531E1E178E1D8170B99C6F82 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		61EFE7B52CA407D49650E30D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */,
+				C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BB9481451EAB8EBC00910D69 = {
 			isa = PBXGroup;
 			children = (
 				BB9481501EAB8EBC00910D69 /* OSX-client-cam */,
 				BB94814F1EAB8EBC00910D69 /* Products */,
+				61EFE7B52CA407D49650E30D /* Pods */,
+				531E1E178E1D8170B99C6F82 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -53,6 +81,8 @@
 			isa = PBXGroup;
 			children = (
 				BB9481511EAB8EBC00910D69 /* AppDelegate.swift */,
+				BBE809901EABA1820069EDDE /* SocketManager.swift */,
+				BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */,
 				BB9481531EAB8EBC00910D69 /* ViewController.swift */,
 				BB9481551EAB8EBC00910D69 /* Assets.xcassets */,
 				BB9481571EAB8EBC00910D69 /* Main.storyboard */,
@@ -68,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB94815D1EAB8EBC00910D69 /* Build configuration list for PBXNativeTarget "OSX-client-cam" */;
 			buildPhases = (
+				051CA56700E4680769A92BE2 /* [CP] Check Pods Manifest.lock */,
 				BB94814A1EAB8EBC00910D69 /* Sources */,
 				BB94814B1EAB8EBC00910D69 /* Frameworks */,
 				BB94814C1EAB8EBC00910D69 /* Resources */,
+				26310F6296B3D585B21A35D8 /* [CP] Embed Pods Frameworks */,
+				A3B8F0BB0A402729BFC6BF61 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -128,6 +161,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		051CA56700E4680769A92BE2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		26310F6296B3D585B21A35D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3B8F0BB0A402729BFC6BF61 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		BB94814A1EAB8EBC00910D69 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -135,6 +216,8 @@
 			files = (
 				BB9481541EAB8EBC00910D69 /* ViewController.swift in Sources */,
 				BB9481521EAB8EBC00910D69 /* AppDelegate.swift in Sources */,
+				BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */,
+				BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +329,7 @@
 		};
 		BB94815E1EAB8EBC00910D69 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -260,6 +344,7 @@
 		};
 		BB94815F1EAB8EBC00910D69 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -291,6 +376,7 @@
 				BB94815F1EAB8EBC00910D69 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
