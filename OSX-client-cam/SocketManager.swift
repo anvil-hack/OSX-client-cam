@@ -12,7 +12,7 @@ import SocketIO
 class SocketManager {
 
     static let shared = SocketManager()
-    private let socket = SocketIOClient(socketURL: URL(string: "http://localhost:4242")!,
+    private let socket = SocketIOClient(socketURL: URL(string: baseUrl)!,
                                         config: [.log(true),
                                                  .forcePolling(true)])
 
@@ -20,11 +20,8 @@ class SocketManager {
         socket.on("connected") { _, _ in
             print("connection socket ok")
         }
-        socket.on("hello") { data, _ in
-            print("get data hello")
-            guard let name = data.first as? String else {return}
-            let message = "Hello \(name)"
-            print("message : \(message)")
+        socket.on("speech") { data, _ in
+            guard let message = data.first as? String else {return}
             SpeechText.shared.start(text: message)
         }
         socket.on("captureFrame") { _, _ in

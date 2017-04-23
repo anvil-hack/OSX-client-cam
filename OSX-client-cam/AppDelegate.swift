@@ -9,6 +9,8 @@
 import Cocoa
 import AVFoundation
 
+let baseUrl = "http://127.0.0.1:4242"
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 

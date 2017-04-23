@@ -15,7 +15,6 @@ class SpeechText {
 
     init() {
         speech = NSSpeechSynthesizer(voice: "com.apple.speech.synthesis.voice.alice")
-        speech?.rate = 60
     }
 
     func start(text: String) {

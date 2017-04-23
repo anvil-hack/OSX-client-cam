@@ -18,7 +18,7 @@ class APIService {
             multipartFormData: { multipartFormData in
                 multipartFormData.append(data.base64EncodedData(), withName: "file")
         },
-            to: "http://127.0.0.1:4242/capture",
+            to: "\(baseUrl)/capture",
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(_, _, _):
