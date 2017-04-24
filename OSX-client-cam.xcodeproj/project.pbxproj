@@ -15,6 +15,7 @@
 		BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE8098E1EAB9FF70069EDDE /* SpeechText.swift */; };
 		BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE809901EABA1820069EDDE /* SocketManager.swift */; };
 		BBE809951EABC19E0069EDDE /* NSView+Screenshots.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */; };
+		BBE8DBD61EAC927A001ABA7A /* Command.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE8DBD51EAC927A001ABA7A /* Command.m */; };
 		C33D46AA45299E3B19C4AD94 /* Pods_OSX_client_cam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F9480052D8A5E37FE538C82 /* Pods_OSX_client_cam.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +33,8 @@
 		BBE809921EABC19E0069EDDE /* OSX-client-cam-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OSX-client-cam-Bridging-Header.h"; sourceTree = "<group>"; };
 		BBE809931EABC19E0069EDDE /* NSView+Screenshots.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+Screenshots.h"; sourceTree = "<group>"; };
 		BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+Screenshots.m"; sourceTree = "<group>"; };
+		BBE8DBD41EAC927A001ABA7A /* Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Command.h; sourceTree = "<group>"; };
+		BBE8DBD51EAC927A001ABA7A /* Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Command.m; sourceTree = "<group>"; };
 		C1A70CC3B757A9B3F2CFF078 /* Pods-OSX-client-cam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.release.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.release.xcconfig"; sourceTree = "<group>"; };
 		D6A719C2169CFE372097F691 /* Pods-OSX-client-cam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OSX-client-cam.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OSX-client-cam/Pods-OSX-client-cam.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +98,8 @@
 				BB94815A1EAB8EBC00910D69 /* Info.plist */,
 				BBE809931EABC19E0069EDDE /* NSView+Screenshots.h */,
 				BBE809941EABC19E0069EDDE /* NSView+Screenshots.m */,
+				BBE8DBD41EAC927A001ABA7A /* Command.h */,
+				BBE8DBD51EAC927A001ABA7A /* Command.m */,
 				BBE809921EABC19E0069EDDE /* OSX-client-cam-Bridging-Header.h */,
 				BB8DFC111EABD6D6004AC50B /* APIService.swift */,
 			);
@@ -228,6 +233,7 @@
 				BBE809951EABC19E0069EDDE /* NSView+Screenshots.m in Sources */,
 				BB9481541EAB8EBC00910D69 /* ViewController.swift in Sources */,
 				BB9481521EAB8EBC00910D69 /* AppDelegate.swift in Sources */,
+				BBE8DBD61EAC927A001ABA7A /* Command.m in Sources */,
 				BBE809911EABA1820069EDDE /* SocketManager.swift in Sources */,
 				BBE8098F1EAB9FF70069EDDE /* SpeechText.swift in Sources */,
 				BB8DFC121EABD6D6004AC50B /* APIService.swift in Sources */,

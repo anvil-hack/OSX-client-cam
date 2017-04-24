@@ -3,3 +3,4 @@
 //
 
 #import "NSView+Screenshots.h"
+#import "Command.h"

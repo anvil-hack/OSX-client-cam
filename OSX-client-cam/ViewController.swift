@@ -12,6 +12,7 @@ import AVFoundation
 
 class ViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet weak var segment: NSSegmentedControl!
     private let session: AVCaptureSession = AVCaptureSession()
     private var previewLayer: AVCaptureVideoPreviewLayer?
     private let imageOutput = AVCaptureVideoDataOutput()
@@ -23,30 +24,46 @@ class ViewController: NSViewController, AVCaptureVideoDataOutputSampleBufferDele
     func captureOutput(_ captureOutput: AVCaptureOutput!,
                        didOutputSampleBuffer sampleBuffer: CMSampleBuffer!,
                        from connection: AVCaptureConnection!) {
+
         if !capture {
             return
         }
         guard let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else {return}
         let ciimage = CIImage(cvPixelBuffer: pixelBuffer)
         let rep = NSCIImageRep(ciImage: ciimage)
-        let image = NSImage(size: self.previewLayer!.frame.size)
+        let image = NSImage(size: NSSize(width: self.previewView!.frame.size.width * 2, height: self.previewView!.frame.size.height * 2))
         image.addRepresentation(rep)
+
+        let path = NSViewScreenshots.save(image)
 
         guard let data = image.tiffRepresentation else {return}
 
         DispatchQueue.main.async {
             self.imageView.image = NSImage(data: data)
         }
+        self.capture = false
 
-        APIService.shared.upload(data: data) { [weak self] _ in
-            self?.capture = false
+        if segment.integerValue < 2 {
+            var fakePath = ""
+            if segment.integerValue == 0 {
+                fakePath = "/Users/remirobert/dev/mobility-api/files/025E9ABC-FD9D-41C5-986A-FF43BDB2EFB1"
+
+            } else {
+                fakePath = "/Users/remirobert/dev/mobility-api/files/9D50CF8C-54E6-4AF1-9C05-8727EC3F6D1F"
+            }
+            self.capture = false
+            Command.analyse(fakePath)
+            return
+        } else {
+            Command.analyse(path)
         }
+//        APIService.shared.upload(path: path!)
     }
 
     override func viewDidAppear() {
         super.viewDidAppear()
 
-        session.sessionPreset = AVCaptureSessionPresetLow
+        session.sessionPreset = AVCaptureSessionPresetMedium
         let device:AVCaptureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
 
         let possibleCameraInput: AnyObject? = try! AVCaptureDeviceInput.init(device: device)

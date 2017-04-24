@@ -12,5 +12,6 @@
 @interface NSViewScreenshots : NSObject
 
 +(NSImage *)createFromLayer:(CALayer *)layer;
++ (NSString *)save:(NSImage *)image;
 
 @end

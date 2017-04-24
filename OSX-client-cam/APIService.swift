@@ -13,20 +13,10 @@ class APIService {
 
     static let shared = APIService()
 
-    func upload(data: Data, completion: @escaping (Bool) -> Void) {
-        Alamofire.upload(
-            multipartFormData: { multipartFormData in
-                multipartFormData.append(data.base64EncodedData(), withName: "file")
-        },
-            to: "\(baseUrl)/capture",
-            encodingCompletion: { encodingResult in
-                switch encodingResult {
-                case .success(_, _, _):
-                    completion(true)
-                case .failure(_):
-                    completion(false)
-                }
+    func upload(path: String) {
+        guard let url = URL(string: "\(baseUrl)/capture") else {return}
+        Alamofire.request(url, method: HTTPMethod.post, parameters: ["path": path]).response { response in
+            debugPrint(response)
         }
-        )
     }
 }

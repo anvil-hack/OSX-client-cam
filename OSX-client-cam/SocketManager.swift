@@ -22,10 +22,17 @@ class SocketManager {
         }
         socket.on("speech") { data, _ in
             guard let message = data.first as? String else {return}
-            SpeechText.shared.start(text: message)
+            DispatchQueue.main.async {
+                Command.speech(message)
+            }
         }
         socket.on("captureFrame") { _, _ in
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "capture"), object: nil)
+        }
+        socket.on("spotify") { data, _ in
+            guard let uri = data.first as? String else {return}
+            guard let url = URL(string: uri) else {return}
+            NSWorkspace.shared().open(url)
         }
         socket.connect()
     }
